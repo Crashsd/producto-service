@@ -1,0 +1,49 @@
+package com.negocio.producto_service.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.negocio.producto_service.model.Categoria;
+import com.negocio.producto_service.repository.ICategoriaRepository;
+import com.negocio.producto_service.service.Interfaces.ICategoriaService;
+@Service
+public class CategoriaService implements ICategoriaService {
+    @Autowired
+    private ICategoriaRepository repo;
+
+    @Override
+    public String SaveCategoria(Categoria categoria) {
+
+        
+       repo.save(categoria);
+
+       if(categoria.getNombre().isBlank()){
+        throw new IllegalArgumentException("El nombre de la categoria no puede estar vacio");
+       }
+
+       return "Categoria guardada";
+    }
+
+    @Override
+    public String deleteCategoria(Long id) {
+        repo.deleteById(id);
+        return "Categoria eliminada";
+
+    }
+
+    @Override
+    public Categoria getCategoriaById(Long id) {
+        Categoria categoria=repo.findById(id).orElse(null);
+
+       return categoria;
+
+        
+    }
+
+    @Override
+    public Categoria findByNombre(String nombre) {
+        
+        return repo.findByNombre(nombre);
+    }
+
+}
