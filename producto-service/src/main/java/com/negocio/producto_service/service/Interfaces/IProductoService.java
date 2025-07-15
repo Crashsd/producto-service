@@ -6,7 +6,7 @@ import com.negocio.producto_service.model.Producto;
 
 public interface IProductoService {
 
-    public String createProducto(Long id_producto, String nombre, String descripcion, Long id_categoria);
+    public String createProducto(Long id_producto, String nombre,Integer cantidad ,String descripcion, Long id_categoria,Double precio);
 
     public String deleteProduto(Long id);
 

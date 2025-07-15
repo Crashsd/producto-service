@@ -40,8 +40,8 @@ public class ProdutoController {
             return "La categoría no existe";
         }
 
-        servProducto.createProducto(producto.getId_producto(), producto.getNombre(), producto.getDescripcion(),
-                categoria.getId_categoria());
+        servProducto.createProducto(producto.getId_producto(), producto.getNombre(), producto.getCantidad(), producto.getDescripcion(),
+                categoria.getId_categoria(), producto.getPrecio());
         return "Guardado";
     }
 
