@@ -16,17 +16,18 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Producto {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_producto;
     private String nombre;
     private String descripcion;
     @ManyToOne
     private Categoria categoria;
     private Integer cantidad;
+    @ManyToOne
+    private Color color;
+    @ManyToOne
+    private Talle talle;
     private Double precio;
-   
-
-
 
 }

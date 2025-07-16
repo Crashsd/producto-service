@@ -1,5 +1,6 @@
 package com.negocio.producto_service.service;
 
+import org.apache.commons.lang.NullArgumentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,8 +43,14 @@ public class CategoriaService implements ICategoriaService {
 
     @Override
     public Categoria findByNombre(String nombre) {
+        if(nombre.equals(null)){
+            throw new NullArgumentException("Nombre no encontrado");
+        }else{
+
+            repo.findByNombre(nombre);
+        }
         
-        return repo.findByNombre(nombre);
+        return null;
     }
 
 }
