@@ -10,7 +10,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class Rol {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,4 +19,6 @@ public class Rol {
     private RoleEnum eRol;
 
 
+    public Rol(RoleEnum roleEnum) {
+    }
 }

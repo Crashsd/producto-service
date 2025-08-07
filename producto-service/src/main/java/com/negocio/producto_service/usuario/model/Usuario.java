@@ -2,7 +2,6 @@ package com.negocio.producto_service.usuario.model;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,7 +12,7 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+
 public class Usuario {
 
     @Id
@@ -23,12 +22,17 @@ public class Usuario {
     private String contrasenia;
     private String email;
 
-    private String teleono;
+    private String telefono;
 
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Rol> roles;
 
 
-
-
+    public Usuario(String nombre, String contrasenia, String telefono, String email, Set<Rol> roles) {
+        this.nombre = nombre;
+        this.contrasenia = contrasenia;
+        this.telefono = telefono;
+        this.email = email;
+        this.roles = roles;
+    }
 }
