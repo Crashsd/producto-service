@@ -29,7 +29,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
-        return http
+        return http 
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request->request
                         .requestMatchers("/login")
